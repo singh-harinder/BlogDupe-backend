@@ -1,5 +1,5 @@
 import { list } from '@keystone-next/keystone/schema';
-import { text, password, relationship } from '@keystone-next/fields';
+import { text, password, relationship, checkbox } from '@keystone-next/fields';
 
 export const User = list({
   fields: {
@@ -10,6 +10,11 @@ export const User = list({
     }),
     password: password({
       isRequired: true,
+    }),
+    isAdmin: checkbox({
+      isRequired: true,
+      label: 'Admin',
+      defaultValue: false,
     }),
     image: relationship({
       ref: 'ProfileImage.photo',
@@ -37,5 +42,9 @@ export const User = list({
     }),
     skills: text({}),
     hobbies: text({}),
+    comments: relationship({
+      ref: 'Comment.user',
+      many: true,
+    }),
   },
 });

@@ -8,6 +8,7 @@ import {
 import { User } from './schemas/User';
 import { Post } from './schemas/Post';
 import { ProfileImage } from './schemas/ProfileImage';
+import { Comment } from './schemas/Comment';
 
 const databaseURL = process.env.DATABASE_URL;
 
@@ -38,17 +39,23 @@ export default withAuth(
       url: databaseURL,
     },
     lists: createSchema({
-      //   Schemas go in here
       User,
       Post,
       ProfileImage,
+      Comment,
     }),
     ui: {
-      //   change this for roles
-      isAccessAllowed: ({ session }) => !!session?.data,
+      isAccessAllowed: ({ session }) => {
+        if (
+          session?.data?.isAdmin ||
+          session?.data?.email === 'kinggouken611@gmail.com'
+        ) {
+          return true;
+        }
+      },
     },
     session: withItemData(statelessSessions(sessionConfig), {
-      User: 'id name email',
+      User: 'id name email isAdmin',
     }),
   })
 );

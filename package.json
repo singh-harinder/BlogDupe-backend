@@ -1,12 +1,11 @@
 {
-  "name": "blog-backend",
+  "name": "blog-dupe-backend",
   "version": "2.0.0",
   "private": true,
   "author": "Harinder Singh",
   "license": "MIT",
   "scripts": {
-    "dev": "keystone-next",
-    "seed-data": "keystone-next --seed-data"
+    "dev": "keystone-next"
   },
   "eslintConfig": {
     "extends": "wesbos/typescript.js",
@@ -69,6 +68,6 @@
     "typescript": "^4.1.2"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": "14.0.0"
   }
 }

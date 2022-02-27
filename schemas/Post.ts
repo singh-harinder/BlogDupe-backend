@@ -17,5 +17,9 @@ export const Post = list({
       },
       isRequired: true,
     }),
+    comments: relationship({
+      ref: 'Comment.post',
+      many: true,
+    }),
   },
 });
