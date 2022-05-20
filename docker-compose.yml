@@ -3,7 +3,7 @@ services:
   blogdupe-backend:
     build: .
     ports:
-      - "3000:3000"
+      - "6000:6000"
     volumes:
       - ./:/app
       - /app/node_modules
