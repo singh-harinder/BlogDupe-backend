@@ -1,0 +1,15 @@
+version: '3'
+services:
+  todo-backend:
+    build: .
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - COOKIE_SECRET=${COOKIE_SECRET}
+      - DATABASE_URL=${DATABASE_URL}
+      - FRONTEND_URL=${FRONTEND_URL}
+      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
+      - CLOUDINARY_KEY=${CLOUDINARY_KEY}
+      - CLOUDINARY_SECRET=${CLOUDINARY_SECRET}
+    command: ["npm", "run", "dev"]
