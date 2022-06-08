@@ -1,0 +1,12 @@
+version: '3'
+services:
+  todo-backend:
+    environment:
+      - NODE_ENV=production      
+      - COOKIE_SECRET=${COOKIE_SECRET}
+      - DATABASE_URL=${DATABASE_URL}
+      - FRONTEND_URL=${FRONTEND_URL}
+      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
+      - CLOUDINARY_KEY=${CLOUDINARY_KEY}
+      - CLOUDINARY_SECRET=${CLOUDINARY_SECRET}
+    command: ["./node_modules/.bin/keystone-next", "start"]
