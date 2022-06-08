@@ -1,7 +1,6 @@
 version: '3'
 services:
   blogdupe-backend:
-    build: .
     restart: always
     ports:
       - "6000:6000"
