@@ -1,6 +1,14 @@
 version: '3'
 services:
-  todo-backend:
+  blogdupe-backend:
+    build:
+      context: .
+      args:
+        - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
+        - CLOUDINARY_KEY=${CLOUDINARY_KEY}
+        - CLOUDINARY_SECRET=${CLOUDINARY_SECRET}
+    ports:
+      - "6000:6000"
     environment:
       - NODE_ENV=production      
       - COOKIE_SECRET=${COOKIE_SECRET}
@@ -9,4 +17,5 @@ services:
       - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
       - CLOUDINARY_KEY=${CLOUDINARY_KEY}
       - CLOUDINARY_SECRET=${CLOUDINARY_SECRET}
+      - PORT = ${PORT}
     command: ["./node_modules/.bin/keystone-next", "start"]
